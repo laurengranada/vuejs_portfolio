@@ -1,165 +1,130 @@
 <template>
 	<v-app>
-		<v-card class="main" height="100%">
-			<v-speed-dial
-				class="main-dial"
-				v-model="fab"
-				:top="true"
-				:right="true"
-				:direction="direction"
-				:open-on-hover="hover"
-				:transition="transition"
-				:style="{'position': 'absolute', 'z-index': '2'}"
-				>
-				<template v-slot:activator>
-					<v-btn
-					v-model="fab"
-					flat
-					color="white"
-					class="md-btn"
-					>
-					<v-img class="md-logo" :src="require('./assets/clearLogo.png')"  :class="{'active-logo': fab}" :style="{'max-height': '30px', 'max-width': '30px', 'padding-bottom': '20px'}"/>
-					<v-icon large class="md-close" color="black"  :class="{'active-close': fab}">add</v-icon>
-					</v-btn>
-				</template>
-				<v-btn
-					fab
-					dark
-					small
-					color="green"
-				>
-					<v-icon>fab fa-medium-m</v-icon>
-				</v-btn>
-				<v-btn
-					fab
-					dark
-					small
-					color="indigo"
-				>
-					<v-icon>fab fa-github</v-icon>
-				</v-btn>
-				<v-btn
-					fab
-					dark
-					small
-					color="red"
-				>
-					<v-icon>delete</v-icon>
-				</v-btn>
-			</v-speed-dial>
-			<v-content class="main-content">
-				<HelloWorld/>
-			</v-content>
-		<v-bottom-nav
-		:active.sync="bottomNav"
-		:color="color"
-		:value="true"
-		absolute
-		dark
-		:style="{'opacity': '1'}"
-		>
-		<v-btn dark>
-			<span>Web</span>
-			<v-icon>desktop_mac</v-icon>
-		</v-btn>
-		<v-btn dark>
-			<span>Video</span>
-			<v-icon>subscriptions</v-icon>
-		</v-btn>
-		<v-btn dark>
-			<span>About</span>
-			<v-icon>portrait</v-icon>
-		</v-btn>
-		</v-bottom-nav>
-    </v-card>
+		<div class="main">
+			<div class="main-tlbr">
+				<!-- <h1 class="mt-initial">{<span class="mt-light">LG</span>}</h1> -->
+                <v-btn round flat depressed color="#7623fc" class="mt-btn text-none" to="/">
+                    <span>&#60;</span>Home<span>/></span>
+                </v-btn>
+                 <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/work">
+                    <span>&#60;</span>Work<span>/></span>
+                </v-btn>
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
+                    <span>&#60;</span>Blog<span>/></span>
+                </v-btn>
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
+                    <span>&#60;</span>About<span>/></span>
+                </v-btn>
+			</div>
+            <div class="main-center">
+                <transition
+                    name="fade"
+                    mode="out-in">
+                    <router-view class="main-content"></router-view>
+                </transition>
+                <div class="side-icons">
+                    <v-btn flat icon color="#7623fc" class="si-icn">
+                        <v-icon class="sii-indiv">fab fa-twitter</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="#7623fc" class="si-icn">
+                        <v-icon class="sii-indiv">fab fa-linkedin</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="#7623fc" class="si-icn">
+                        <v-icon class="sii-indiv">fab fa-github</v-icon>
+                    </v-btn>
+                    <v-btn flat icon color="#7623fc" class="si-icn">
+                        <v-icon class="sii-indiv">fab fa-dev</v-icon>
+                    </v-btn>
+                </div>
+            </div>
+		</div>
 	</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
 	name: 'App',
-	components: {
-		HelloWorld
-	},
 	data () {
 		return {
-			bClickedDial: false,
-			bottomNav: 0,
-			direction: 'bottom',
-			fab: false,
-			fling: false,
-			hover: false,
-			tabs: null,
-			top: true,
-			left: true,
-			transition: 'slide-y-transition'
+            //
 		};
-	},
-	computed: {
-		color () {
-			switch (this.bottomNav) {
-				case 0: return '#6200EA';
-				case 1: return '#A000C7';
-				case 2: return '#EA009C';
-				default: return '#6200EA';
-			}
-		},
-		activeFab () {
-        switch (this.tabs) {
-          case 'one': return { 'class': 'purple', icon: 'account_circle' };
-          case 'two': return { 'class': 'red', icon: 'edit' };
-          case 'three': return { 'class': 'green', icon: 'keyboard_arrow_up' };
-          default: return {};
-        }
-      }
-	},
-	watch: {
-      top (val) {
-        this.bottom = !val;
-      },
-      right (val) {
-        this.left = !val;
-      },
-      bottom (val) {
-        this.top = !val;
-      },
-      left (val) {
-        this.right = !val;
-      }
     }
 };
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700');
 .main{
-	.main-dial{
-		.md-logo{
-			opacity: 1;
-			transition: all .2s linear;
-		}
-		.active-logo{
-			opacity: 0;
-			transform: rotate(45deg);
-			transition: all .2s linear;
-		}
-		.md-close{
-			opacity: 0;
-			// transform: rotate(45deg);
-			transition: all .2s linear;
-			position: absolute;
-		}
-		.active-close{
-			opacity: 1;
-			transform: rotate(-45deg);
-			transition: all .2s linear;
-		}
-	}
-	.main-content{
-		height: 100%;
+    background-image: url('./assets/lite-marble.png');
+    position: fixed;
+	height: 100%;
+	.main-tlbr{
+        // background-color: aqua;
+        z-index: 2;
+		position: fixed;
+		padding: .5rem;
+		display: inline-flex;
 		width: 100%;
+        justify-content: center;
+        // justify-content: flex-end;
+        // padding-right: 14%;
+		// height: 4%;
+        // text-align: center;
+		// .mt-initial{
+        //     flex: 1;
+        //     font-family: 'Noto Serif', serif;
+        //     font-weight: 700;
+        //     // font-weight: 100;
+        //     color: #7623fc;
+		// }
+        .mt-btn{
+            font-family: 'Noto Serif', serif;
+            font-size: 12px;
+            width: 2rem !important;
+            font-weight: 600;
+            // margin: 0rem !important;
+            margin-top: 0rem;
+            margin-right: .1rem;
+        }
 	}
+    .main-center{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        .fade-enter-active,
+        .fade-leave-active {
+        transition-duration: 0.3s;
+        transition-property: opacity;
+        transition-timing-function: ease;
+        }
+
+        .fade-enter,
+        .fade-leave-active {
+        opacity: 0
+        }
+        .main-content{
+            height: 100%;
+            width: 100%;
+        }
+        .side-icons{
+            // margin-top: 50%;
+            right: 0;
+            top: 35%;
+            position: fixed;
+            // background-color: aqua;
+            height: 100%;
+            z-index: 2;
+            padding-left: .5rem;
+            padding-right: .5rem;
+            .si-icn{
+                display: block;
+                .sii-indiv{
+                    font-size: 17px;
+                }
+            }
+        }
+    }
 }
 </style>
 
