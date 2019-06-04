@@ -9,9 +9,9 @@
                  <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/work">
                     <span>&#60;</span>Work<span>/></span>
                 </v-btn>
-                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
+                <!-- <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
                     <span>&#60;</span>Blog<span>/></span>
-                </v-btn>
+                </v-btn> -->
                 <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
                     <span>&#60;</span>About<span>/></span>
                 </v-btn>
@@ -23,17 +23,20 @@
                     <router-view class="main-content"></router-view>
                 </transition>
                 <div class="side-icons">
-                    <v-btn flat icon color="#7623fc" class="si-icn">
+                    <v-btn flat icon color="#7623fc" class="si-icn" href="https://twitter.com/LaurenGranada" target="_blank">
                         <v-icon class="sii-indiv">fab fa-twitter</v-icon>
                     </v-btn>
-                    <v-btn flat icon color="#7623fc" class="si-icn">
+                    <v-btn flat icon color="#7623fc" class="si-icn" href="https://www.linkedin.com/in/lauren-granada-developer/" target="_blank">
                         <v-icon class="sii-indiv">fab fa-linkedin</v-icon>
                     </v-btn>
-                    <v-btn flat icon color="#7623fc" class="si-icn">
+                    <v-btn flat icon color="#7623fc" class="si-icn" href="https://github.com/laurengranada" target="_blank">
                         <v-icon class="sii-indiv">fab fa-github</v-icon>
                     </v-btn>
-                    <v-btn flat icon color="#7623fc" class="si-icn">
+                    <!-- <v-btn flat icon color="#7623fc" class="si-icn" href="https://www.linkedin.com/in/lauren-granada-developer/" target="_blank">
                         <v-icon class="sii-indiv">fab fa-dev</v-icon>
+                    </v-btn> -->
+                    <v-btn flat icon color="#7623fc" class="si-icn" href="https://medium.com/@laurengranada" target="_blank">
+                        <v-icon class="sii-indiv">fab fa-medium</v-icon>
                     </v-btn>
                 </div>
             </div>
@@ -47,7 +50,6 @@ export default {
 	name: 'App',
 	data () {
 		return {
-            //
 		};
     }
 };
@@ -118,6 +120,7 @@ export default {
             padding-left: .5rem;
             padding-right: .5rem;
             .si-icn{
+                padding-top: .6rem;
                 display: block;
                 .sii-indiv{
                     font-size: 17px;

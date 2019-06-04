@@ -6,90 +6,24 @@
         </div> -->
         <v-card class="m-card-one">
             <v-container grid-list-lg fluid class="mc-projects">
-                <!-- <p class="mci-ttl">Experience working with: </p> -->
-                <!-- <v-divider></v-divider> -->
+                <!-- <p class="mci-ttl">Experience working with: </p>
+                <v-divider></v-divider> -->
                 <v-layout row wrap>
                     <v-flex
+                    v-for="item in aProjects"
+                    :key="item.index"
                     md6
                     >
                         <v-card tile class="mcp-innr">
                             <v-img
-                            :src="require('@/assets/vuetifyplayer.png')"
+                            :src="item.sImgPath"
                             :aspect-ratio="1.6"
                             >
                             </v-img>
-                            <v-card-actions class="justify-center">
+                            <v-card-actions class="justify-center mcpi-btm">
                                 <div class="mcpi-btns">
-                                    <v-btn round href="https://github.com/laurengranada/vuetify-music-player" target="_blank">Code</v-btn>
-                                    <v-btn round href="https://laurengranada.github.io/vuetify-music-player/" target="_blank">Demo</v-btn>
-                                </div>
-                            </v-card-actions>
-                        </v-card>
-                    </v-flex>
-                    <v-flex
-                    md6
-                    >
-                        <v-card tile class="mcp-innr">
-                            <v-img
-                            :src="require('@/assets/drake.png')"
-                            :aspect-ratio="1.6"
-                            >
-                            </v-img>
-                            <v-card-actions class="justify-center">
-                                <div class="mcpi-btns">
-                                    <v-btn round>Code</v-btn>
-                                    <v-btn round>Demo</v-btn>
-                                </div>
-                            </v-card-actions>
-                        </v-card>
-                    </v-flex>
-                    <v-flex
-                    md6
-                    >
-                        <v-card tile class="mcp-innr">
-                            <v-img
-                            :src="require('@/assets/liri.gif')"
-                            :aspect-ratio="1.6"
-                            >
-                            </v-img>
-                            <v-card-actions class="justify-center">
-                                <div class="mcpi-btns">
-                                    <v-btn round>Code</v-btn>
-                                    <v-btn round>Demo</v-btn>
-                                </div>
-                            </v-card-actions>
-                        </v-card>
-                    </v-flex>
-                    <v-flex
-                    md6
-                    >
-                        <v-card tile class="mcp-innr">
-                            <v-img
-                            :src="require('@/assets/friends.png')"
-                            :aspect-ratio="1.6"
-                            >
-                            </v-img>
-                            <v-card-actions class="justify-center">
-                                <div class="mcpi-btns">
-                                    <v-btn round>Code</v-btn>
-                                    <v-btn round>Demo</v-btn>
-                                </div>
-                            </v-card-actions>
-                        </v-card>
-                    </v-flex>
-                    <v-flex
-                    md6
-                    >
-                        <v-card tile class="mcp-innr">
-                            <v-img
-                            :src="require('@/assets/harrypotter.jpg')"
-                            :aspect-ratio="1.6"
-                            >
-                            </v-img>
-                            <v-card-actions class="justify-center">
-                                <div class="mcpi-btns">
-                                    <v-btn round>Code</v-btn>
-                                    <v-btn round>Demo</v-btn>
+                                    <v-btn dark outline round :href="item.sCodeLink" target="_blank" color="grey darken-4">Code</v-btn>
+                                    <v-btn dark outline round :href="item.sDemoLink" target="_blank" color="grey darken-4" v-if="item.sDemoLink !== null">Demo</v-btn>
                                 </div>
                             </v-card-actions>
                         </v-card>
@@ -100,7 +34,7 @@
         <v-card class="m-card-two">
             <v-container grid-list-lg fluid class="mc-imgs">
                 <p class="mci-ttl">Experience working with: </p>
-                <!-- <v-divider></v-divider> -->
+                <v-divider></v-divider>
                 <v-layout row wrap>
                     <v-flex
                     v-for="item in aIcons"
@@ -125,6 +59,48 @@
 export default {
     data () {
         return {
+            aProjects: [
+                {
+                    sImgPath: require('@/assets/bachelor.png'),
+                    sCodeLink: 'https://github.com/laurengranada/fantasyBachelor',
+                    sDemoLink: 'https://laurengranada.github.io/fantasyBachelor/'
+                },
+                {
+                    sImgPath: require('@/assets/vuetifyplayer.png'),
+                    sCodeLink: 'https://github.com/laurengranada/vuetify-music-player',
+                    sDemoLink: 'https://laurengranada.github.io/vuetify-music-player/'
+                },
+                {
+                    sImgPath: require('@/assets/u90c.png'),
+                    sCodeLink: 'https://github.com/laurengranada/u90c',
+                    sDemoLink: 'http://upperninetycup.com/'
+                },
+                {
+                    sImgPath: require('@/assets/drake.png'),
+                    sCodeLink: 'https://github.com/laurengranada/week-3-game',
+                    sDemoLink: 'https://laurengranada.github.io/week-3-game/'
+                },
+                {
+                    sImgPath: require('@/assets/liri.gif'),
+                    sCodeLink: 'https://github.com/laurengranada/week-10-liri',
+                    sDemoLink: null
+                },
+                {
+                    sImgPath: require('@/assets/friends.png'),
+                    sCodeLink: 'https://github.com/laurengranada/week-3-game',
+                    sDemoLink: 'https://laurengranada.github.io/week-3-game/'
+                },
+                {
+                    sImgPath: require('@/assets/harrypotter.jpg'),
+                    sCodeLink: 'https://github.com/laurengranada/TriviaGame',
+                    sDemoLink: 'https://floating-eyrie-82871.herokuapp.com/'
+                },
+                {
+                    sImgPath: require('@/assets/burger.png'),
+                    sCodeLink: 'https://github.com/laurengranada/week-14-burger',
+                    sDemoLink: 'https://cryptic-taiga-86578.herokuapp.com/'
+                }
+            ],
             aIcons: [
                 {
                     sTitle: 'JS',
@@ -235,6 +211,9 @@ export default {
                     // margin-right: 1rem;
                     // margin-left: 1rem;
                     // margin-top: 2rem;
+                    .mcpi-btm{
+                        // background-color: #EEEEEE;
+                    }
                     .mcpi-btns{
                     }
                 }
@@ -242,6 +221,7 @@ export default {
         }
         .m-card-two{
             margin-top: 3rem;
+            margin-bottom: 4rem;
             margin-right: 13%;
             margin-left: 13%;
             padding: 2rem;
@@ -250,6 +230,7 @@ export default {
                     font-family: 'Open Sans', sans-serif;
                     font-size: 16px;
                     margin-bottom: .2rem;
+                    // font-weight: 600;
                 }
                 .mci-innr{
                     padding-top: 1rem;

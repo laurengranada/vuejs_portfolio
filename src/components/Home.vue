@@ -7,7 +7,7 @@
             <p class="ml-fe">Software Developer.</p>
         </div>
         <div class="main-right">
-            <img class="mr-img" src="../assets/profile.jpg" :style="{'max-height': '410px'}">
+            <img class="mr-img" src="../assets/profile.jpg">
         </div>
     </div>
 </template>
@@ -23,6 +23,23 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
+@media only screen and (max-width: 600px) {
+    .main{
+        // padding-top: 20%;
+        display: block !important;
+        .main-left{
+            padding-top: 20%;
+            padding-right: 9% !important;
+        }
+        .main-right{
+            padding-top: 5%;
+            padding-right: 17% !important;
+            .mr-img{
+                max-height: 240px !important;
+            }
+        }
+    }
+}
     .main{
         padding-right: 5%;
         display: flex;
@@ -75,8 +92,9 @@ export default {
             text-align: center;
             display: flex;
             justify-content: flex-end;
-            // padding-right: 2.5rem;
+            padding-right: 2.5rem;
             .mr-img{
+                max-height: 410px;
             }
             .mr-icons{
                 padding-left: 1rem;
