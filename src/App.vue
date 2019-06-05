@@ -8,15 +8,12 @@
                 <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/work">
                     <span>&#60;</span>Work<span>/></span>
                 </v-btn>
-                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
+                    <span>&#60;</span>Blog<span>/></span>
+                </v-btn>
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" href="./Resume_LaurenGranada.pdf" target="_blank">
                     <span>&#60;</span>Resume<span>/></span>
                 </v-btn>
-                <!-- <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
-                    <span>&#60;</span>Blog<span>/></span>
-                </v-btn> -->
-                <!-- <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
-                    <span>&#60;</span>About<span>/></span>
-                </v-btn> -->
 			</div>
             <div class="main-center">
                 <transition
