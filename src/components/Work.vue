@@ -34,7 +34,7 @@
         <v-card class="m-card-two">
             <v-container grid-list-lg fluid class="mc-imgs">
                 <p class="mci-ttl">Experience working with: </p>
-                <v-divider></v-divider>
+                <v-divider class="mci-dv text-xs-center"></v-divider>
                 <v-layout row wrap>
                     <v-flex
                     v-for="item in aIcons"
@@ -52,6 +52,9 @@
                 </v-layout>
             </v-container>
         </v-card>
+        <v-footer class="main-footer justify-center">
+            <p class="ma-0">&copy; {{new Date().getFullYear()}} Lauren Granada</p>
+        </v-footer>
     </div>
 </template>
 
@@ -221,22 +224,35 @@ export default {
         }
         .m-card-two{
             margin-top: 3rem;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
             margin-right: 13%;
             margin-left: 13%;
             padding: 2rem;
             .mc-imgs{
                 .mci-ttl{
+                    text-align: center;
                     font-family: 'Open Sans', sans-serif;
-                    font-size: 16px;
-                    margin-bottom: .2rem;
-                    // font-weight: 600;
+                    font-size: 18px;
+                    margin-bottom: .5rem;
+                    font-weight: 600;
+                }
+                .mci-dv{
+                    text-align: center;
+                    padding-bottom: 2rem;
                 }
                 .mci-innr{
-                    padding-top: 1rem;
+                    // padding-top: 2rem;
                     text-align: center;
                 }
             }
+        }
+         .main-footer{
+            height: 1rem;
+            background: none;
+            z-index: 50;
+            margin: 0rem;
+            // position: relative;
+            // padding-top: 1rem;
         }
     }
 </style>

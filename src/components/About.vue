@@ -1,9 +1,12 @@
 <template>
     <div class="main">
         About
+        <!-- <pdf src="./assets/Resume_LaurenGranada.pdf"></pdf> -->
     </div>
 </template>
 <script>
+// import pdf from 'vue-pdf'
+
 export default {
     data () {
         return {

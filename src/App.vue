@@ -2,19 +2,21 @@
 	<v-app>
 		<div class="main">
 			<div class="main-tlbr">
-				<!-- <h1 class="mt-initial">{<span class="mt-light">LG</span>}</h1> -->
                 <v-btn round flat depressed color="#7623fc" class="mt-btn text-none" to="/">
-                    <span>&#60;</span>Home<span>/></span>
+                    <span>&#60;</span>About<span>/></span>
                 </v-btn>
-                 <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/work">
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/work">
                     <span>&#60;</span>Work<span>/></span>
+                </v-btn>
+                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
+                    <span>&#60;</span>Resume<span>/></span>
                 </v-btn>
                 <!-- <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/blog">
                     <span>&#60;</span>Blog<span>/></span>
                 </v-btn> -->
-                <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
+                <!-- <v-btn round flat color="#7623fc" class="mt-btn text-none" to="/about">
                     <span>&#60;</span>About<span>/></span>
-                </v-btn>
+                </v-btn> -->
 			</div>
             <div class="main-center">
                 <transition
@@ -38,8 +40,14 @@
                     <v-btn flat icon color="#7623fc" class="si-icn" href="https://medium.com/@laurengranada" target="_blank">
                         <v-icon class="sii-indiv">fab fa-medium</v-icon>
                     </v-btn>
+                    <!-- <v-btn flat icon color="#7623fc" class="si-icn" href="https://medium.com/@laurengranada" target="_blank">
+                        <v-icon class="sii-indiv">fas fa-file-pdf</v-icon>
+                    </v-btn> -->
                 </div>
             </div>
+            <!-- <v-footer class="main-footer justify-center">
+                <p>&copy; {{new Date().getFullYear()}} Lauren Granada</p>
+            </v-footer> -->
 		</div>
 	</v-app>
 </template>
@@ -51,6 +59,11 @@ export default {
 	data () {
 		return {
 		};
+    },
+    methods: {
+        fOpenPDF: function () {
+            window.open("./assets/bachelor.png", "_blank");
+        }
     }
 };
 </script>
@@ -60,7 +73,9 @@ export default {
 .main{
     background-image: url('./assets/lite-marble.png');
     position: fixed;
+    // opacity: .5;
 	height: 100%;
+    // z-index: 0;
 	.main-tlbr{
         // background-color: aqua;
         z-index: 2;
@@ -82,7 +97,7 @@ export default {
 		// }
         .mt-btn{
             font-family: 'Noto Serif', serif;
-            font-size: 12px;
+            font-size: 14px;
             width: 2rem !important;
             font-weight: 600;
             // margin: 0rem !important;
@@ -92,18 +107,17 @@ export default {
 	}
     .main-center{
         display: flex;
-        height: 100%;
+        height: 95%;
         width: 100%;
         .fade-enter-active,
         .fade-leave-active {
-        transition-duration: 0.3s;
-        transition-property: opacity;
-        transition-timing-function: ease;
+            transition-duration: 0.3s;
+            transition-property: opacity;
+            transition-timing-function: ease;
         }
-
         .fade-enter,
         .fade-leave-active {
-        opacity: 0
+            opacity: 0
         }
         .main-content{
             height: 100%;
@@ -127,6 +141,13 @@ export default {
                 }
             }
         }
+    }
+    .main-footer{
+        height: 3rem;
+        background: none;
+        z-index: 50;
+        position: relative;
+        padding-top: 1rem;
     }
 }
 </style>
