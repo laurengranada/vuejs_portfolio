@@ -1,6 +1,14 @@
 <template>
 	<v-app>
-		<div class="main">
+		<div :class="DarkMode">
+            <div class="main-mode">
+                <v-btn flat icon class="mm-btn" v-if="!bDarkMode" @click="fToggleDarkMode(true)">
+                    <v-icon class="mb-icn">brightness_2</v-icon>
+                </v-btn>
+                <v-btn flat icon dark class="mm-btn" v-if="bDarkMode" @click="fToggleDarkMode(false)">
+                    <v-icon class="mb-icn">brightness_5</v-icon>
+                </v-btn>
+            </div>
 			<div class="main-tlbr">
                 <v-btn round flat depressed color="#7623fc" class="mt-btn text-none" to="/">
                     <span>&#60;</span>About<span>/></span>
@@ -55,11 +63,20 @@ export default {
 	name: 'App',
 	data () {
 		return {
+            bDarkMode: false
 		};
     },
+    computed: {
+        DarkMode: function () {
+            return {
+                'darkMode': this.bDarkMode === true,
+                'main': this.bDarkMode === false
+            }
+        }
+    },
     methods: {
-        fOpenPDF: function () {
-            window.open("./assets/bachelor.png", "_blank");
+        fToggleDarkMode: function (bIsDark) {
+            this.bDarkMode = bIsDark;
         }
     }
 };
@@ -67,37 +84,33 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700');
-.main{
-    background-image: url('./assets/lite-marble.png');
+.darkMode{
+    background-image: url('./assets/dark-marble.png') !important;
     position: fixed;
-    // opacity: .5;
 	height: 100%;
-    // z-index: 0;
+    .main-mode{
+        margin-top: .1rem;
+        position: fixed;
+        z-index: 4;
+        background: none;
+        .mm-btn{
+            .mb-icn{
+                font-size: 17px;
+            }
+        }
+    }
 	.main-tlbr{
-        // background-color: aqua;
         z-index: 2;
 		position: fixed;
 		padding: .5rem;
 		display: inline-flex;
 		width: 100%;
         justify-content: center;
-        // justify-content: flex-end;
-        // padding-right: 14%;
-		// height: 4%;
-        // text-align: center;
-		// .mt-initial{
-        //     flex: 1;
-        //     font-family: 'Noto Serif', serif;
-        //     font-weight: 700;
-        //     // font-weight: 100;
-        //     color: #7623fc;
-		// }
         .mt-btn{
             font-family: 'Noto Serif', serif;
             font-size: 14px;
             width: 2rem !important;
             font-weight: 600;
-            // margin: 0rem !important;
             margin-top: 0rem;
             margin-right: .1rem;
         }
@@ -121,11 +134,84 @@ export default {
             width: 100%;
         }
         .side-icons{
-            // margin-top: 50%;
             right: 0;
             top: 35%;
             position: fixed;
-            // background-color: aqua;
+            height: 100%;
+            z-index: 2;
+            padding-left: .5rem;
+            padding-right: .5rem;
+            .si-icn{
+                padding-top: .6rem;
+                display: block;
+                .sii-indiv{
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+    .main-footer{
+        height: 3rem;
+        background: none;
+        z-index: 50;
+        position: relative;
+        padding-top: 1rem;
+        color: white;
+    }
+}
+.main{
+    background-image: url('./assets/lite-marble.png');
+    position: fixed;
+	height: 100%;
+    .main-mode{
+        margin-top: .1rem;
+        position: fixed;
+        z-index: 4;
+        background: none;
+        .mm-btn{
+            .mb-icn{
+                font-size: 17px;
+            }
+        }
+    }
+	.main-tlbr{
+        z-index: 2;
+		position: fixed;
+		padding: .5rem;
+		display: inline-flex;
+		width: 100%;
+        justify-content: center;
+        .mt-btn{
+            font-family: 'Noto Serif', serif;
+            font-size: 14px;
+            width: 2rem !important;
+            font-weight: 600;
+            margin-top: 0rem;
+            margin-right: .1rem;
+        }
+	}
+    .main-center{
+        display: flex;
+        height: 95%;
+        width: 100%;
+        .fade-enter-active,
+        .fade-leave-active {
+            transition-duration: 0.3s;
+            transition-property: opacity;
+            transition-timing-function: ease;
+        }
+        .fade-enter,
+        .fade-leave-active {
+            opacity: 0
+        }
+        .main-content{
+            height: 100%;
+            width: 100%;
+        }
+        .side-icons{
+            right: 0;
+            top: 35%;
+            position: fixed;
             height: 100%;
             z-index: 2;
             padding-left: .5rem;
