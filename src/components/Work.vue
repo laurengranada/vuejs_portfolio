@@ -14,7 +14,7 @@
                     :key="item.index"
                     md6
                     >
-                        <v-card tile class="mcp-innr">
+                        <v-card class="mcp-innr">
                             <v-img
                             :src="item.sImgPath"
                             :aspect-ratio="1.6"
@@ -41,7 +41,7 @@
                     :key="item.index"
                     xs3 sm2 md1
                     >
-                    <v-card flat tile class="mci-innr">
+                    <v-card flat class="mci-innr">
                         <v-img
                         :src="item.sImgPath"
                         :aspect-ratio="1"
@@ -246,7 +246,7 @@ export default {
                 }
             }
         }
-         .main-footer{
+        .main-footer{
             height: 1rem;
             background: none;
             z-index: 50;
