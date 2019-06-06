@@ -2,10 +2,10 @@
     <div class="main">
         <div class="main-innr">
             <div class="main-left">
-                <p class="ml-intro">I'm</p>
-                <h1 class="ml-name">Lauren Granada,</h1>
+                <p class="ml-intro" :class="{ 'ml-intro-dark': bDarkMode }">I'm</p>
+                <h1 class="ml-name" :class="{ 'ml-name-dark': bDarkMode }">Lauren Granada,</h1>
                 <!-- <p class="ml-fe">Front End Developer.<span class="mlf-cursor">l</span></p> -->
-                <p class="ml-fe">Software Developer.</p>
+                <p class="ml-fe" :class="{ 'ml-fe-dark': bDarkMode }">Software Developer.</p>
             </div>
             <div class="main-right">
                 <img class="mr-img" src="../assets/profile.jpg">
@@ -36,11 +36,17 @@
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
     data () {
         return {
             //
         };
+    },
+    computed: {
+        ...mapGetters({
+            bDarkMode: 'get_b_DarkMode'
+        })
     }
 };
 </script>
@@ -87,6 +93,12 @@ export default {
                     padding-left: 7rem;
                     margin: 0px;
                     line-height: 10px;
+                    transition: all ease-in .3s;
+
+                }
+                .ml-intro-dark{
+                    transition: all ease-in .3s;
+                    color: white;
                 }
                 .ml-name{
                     font-family: 'Noto Serif', serif;
@@ -94,7 +106,13 @@ export default {
                     font-size: 50px;
                     padding-left: 5rem;
                     line-height: 4.5rem;
-                }.ml-fe{
+                    transition: all ease-in .3s;
+                }
+                .ml-name-dark{
+                    color: white;
+                    transition: all ease-in .3s;
+                }
+                .ml-fe{
                     font-family: 'Open Sans', sans-serif;
                     font-size: 30px;
                     padding-left: 9rem;
@@ -103,6 +121,7 @@ export default {
                     background-color: black;
                     // background-color: #7623fc;
                     color: white;
+                    transition: all ease-in .3s;
                     .mlf-cursor{
                         animation: 1s blink step-end infinite;
                         font-family: 'Open Sans', sans-serif;
@@ -116,6 +135,11 @@ export default {
                             color: white;
                         }
                     }
+                }
+                .ml-fe-dark{
+                    background-color: white !important;
+                    color: black !important;
+                    transition: all ease-in .3s;
                 }
             }
             .main-right{
