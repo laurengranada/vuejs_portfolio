@@ -70,7 +70,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/utilcolor.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (min-width: 375px) {
     .main{
         padding-top: 0rem !important;
         .main-innr{
@@ -84,6 +84,37 @@ export default {
                 padding-right: 17% !important;
                 .mr-img{
                     max-height: 240px !important;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    .main{
+        padding-top: 0rem !important;
+        .main-innr{
+            display: block !important;
+            padding-top: 3rem !important;
+            .main-left{
+                padding-top: 20%;
+                padding-right: 8% !important;
+                .ml-intro{
+                    font-size: 20px !important;
+                }
+                .ml-name{
+                    font-size: 26px !important;
+                    line-height: 3rem !important;
+                }
+                .ml-fe{
+                    font-size: 18px !important;
+                    padding-left: 7rem !important;
+                }
+            }
+            .main-right{
+                padding-top: 5%;
+                padding-right: 8% !important;
+                .mr-img{
+                    max-height: 220px !important;
                 }
             }
         }

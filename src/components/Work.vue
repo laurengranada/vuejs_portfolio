@@ -16,8 +16,8 @@
                             </v-img>
                             <v-card-actions class="justify-center mcpi-btm" :class="{ 'mcpi-btm-dark': bDarkMode }">
                                 <div class="mcpi-btns">
-                                    <v-btn :class="{ 'mb-btn-dark': bDarkMode }" :dark="bDarkMode" :outline="!bDarkMode" round :href="item.sCodeLink" target="_blank">Code</v-btn>
-                                    <v-btn :class="{ 'mb-btn-dark': bDarkMode }" :dark="bDarkMode" :outline="!bDarkMode" round :href="item.sDemoLink" target="_blank" v-if="item.sDemoLink !== null">Demo</v-btn>
+                                    <v-btn class="mb-btn" :dark="bDarkMode" :outline="!bDarkMode" round :href="item.sCodeLink" target="_blank">Code</v-btn>
+                                    <v-btn class="mb-btn" :dark="bDarkMode" :outline="!bDarkMode" round :href="item.sDemoLink" target="_blank" v-if="item.sDemoLink !== null">Demo</v-btn>
                                 </div>
                             </v-card-actions>
                         </v-card>
@@ -188,6 +188,27 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/utilcolor.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
+@media only screen and (max-width: 375px) {
+    .main{
+        .m-card-one, .m-card-one-dark{
+            .mc-projects{
+                .mcp-innr{
+                    .mcpi-btm{
+                        text-align: center;
+                        .mcpi-btns{
+                            display: flex;
+                            .mb-btn{
+                                padding: 0rem !important;
+                                height: 2rem !important;
+                                min-width: 5rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
     .main{
         height: 100%;
         width: 100%;
@@ -227,10 +248,7 @@ export default {
                         background-color: $lighter_dark;
                     }
                     .mcpi-btm{
-                    }
-                    .mcpi-btns{
-                        .mb-btn-dark{
-                            // background-color: $lighter_dark;
+                        .mcpi-btns{
                         }
                     }
                 }

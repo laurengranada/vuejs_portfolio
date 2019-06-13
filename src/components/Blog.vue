@@ -65,9 +65,23 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/utilcolor.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
+@media only screen and (max-width: 375px) {
+    .main{
+        .main-innr{
+            .m-card{
+                .mc-innr{
+                    .mci-card{
+                        .mc-ttl{
+                            font-size: 20px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
     .main{
         height: 100%;
-        width: 100%;
         overflow-y: auto;
         .main-innr{
             padding-top: 6rem;

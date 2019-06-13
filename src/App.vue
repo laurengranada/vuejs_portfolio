@@ -79,6 +79,27 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700');
+@media only screen and (max-width: 375px) {
+    .main, .darkMode {
+        .main-mode{
+            margin-top: 3rem !important;
+            margin-left: -4px !important;
+
+        }
+        .main-tlbr{
+            .mt-btn{
+                font-size: 12px !important;
+                margin: 0rem !important;
+            }
+        }
+        .main-center{
+            .side-icons{
+                padding-right: 0px !important;
+                margin-right: -4px !important;
+            }
+        }
+    }
+}
 .darkMode{
     transition: all ease-in .3s;
     // background-image: url('./assets/dark-marble.png') !important;
