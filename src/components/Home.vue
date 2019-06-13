@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main" :style="{'background-image': 'url(' + sImgPath + ')'}">
         <div class="main-innr">
             <div class="main-left">
                 <p class="ml-intro" :class="{ 'ml-intro-dark': bDarkMode }">I'm</p>
@@ -12,10 +12,10 @@
             </div>
         </div>
         <div class="main-about">
-            <v-card class="ma-card">
+            <v-card class="ma-card" :class="{ 'ma-card-dark': bDarkMode }">
                 <v-container fluid class="mc-innr">
                     <p class="mci-ttl">About</p>
-                    <v-divider class="mci-dv"></v-divider>
+                    <v-divider class="mci-dv" :dark="bDarkMode"></v-divider>
                     <div class="mci-body">
                         <p class="mb-line">
                             Texas Ex from The University of Texas at Austin, Lauren earned a Bachelor of Arts in Philosophy, accompanied by a Business Foundations Certificate from The Red McCombs School of Business.
@@ -30,7 +30,7 @@
                 </v-container>
             </v-card>
         </div>
-        <v-footer class="main-footer justify-center">
+        <v-footer class="main-footer justify-center" :class="{ 'main-footer-dark': bDarkMode }">
             <p class="ma-0">&copy; {{new Date().getFullYear()}} Lauren Granada</p>
         </v-footer>
     </div>
@@ -40,22 +40,38 @@ import { mapGetters } from 'vuex';
 export default {
     data () {
         return {
-            //
+            sImgPath: null
         };
     },
     computed: {
         ...mapGetters({
             bDarkMode: 'get_b_DarkMode'
         })
+    },
+    watch: {
+        bDarkMode: function () {
+            if (this.bDarkMode === false) {
+                this.sImgPath = './lite-marble.png';
+            } else {
+                this.sImgPath = './dark-marble.png';
+            }
+        }
+    },
+    mounted: function () {
+        if (this.bDarkMode === false) {
+            this.sImgPath = './lite-marble.png';
+        } else {
+            this.sImgPath = './dark-marble.png';
+        }
     }
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/style/utilcolor.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
 @media only screen and (max-width: 600px) {
     .main{
-        // padding-top: 20%;
         padding-top: 0rem !important;
         .main-innr{
             display: block !important;
@@ -79,11 +95,9 @@ export default {
         padding-top: 6rem;
         overflow-y: auto;
         .main-innr{
-            // padding-top: 8%;
             padding-right: 5%;
             display: flex;
             .main-left{
-                // background-color: brown;
                 flex: 1;
                 align-items: center;
                 margin: auto;
@@ -98,7 +112,7 @@ export default {
                 }
                 .ml-intro-dark{
                     transition: all ease-in .3s;
-                    color: white;
+                    color: $off_white;
                 }
                 .ml-name{
                     font-family: 'Noto Serif', serif;
@@ -109,7 +123,7 @@ export default {
                     transition: all ease-in .3s;
                 }
                 .ml-name-dark{
-                    color: white;
+                    color: $off_white;
                     transition: all ease-in .3s;
                 }
                 .ml-fe{
@@ -117,9 +131,7 @@ export default {
                     font-size: 30px;
                     padding-left: 9rem;
                     margin: 0px;
-                    // line-height: 10px;
                     background-color: black;
-                    // background-color: #7623fc;
                     color: white;
                     transition: all ease-in .3s;
                     .mlf-cursor{
@@ -137,8 +149,8 @@ export default {
                     }
                 }
                 .ml-fe-dark{
-                    background-color: white !important;
-                    color: black !important;
+                    background-color: $dark;
+                    color: $purple;
                     transition: all ease-in .3s;
                 }
             }
@@ -170,6 +182,18 @@ export default {
             padding-bottom: 6rem;
             margin-left: 13%;
             margin-right: 13%;
+            .ma-card-dark{
+                background-color: $dark;
+                .mc-innr{
+                    .mci-ttl{
+                        color: $off_white;
+
+                    }
+                    .mci-body{
+                        color: $off_white;
+                    }
+                }
+            }
             .ma-card{
                 padding: 2rem;
                 .mc-innr{
@@ -185,7 +209,6 @@ export default {
                         padding-bottom: 2rem;
                     }
                     .mci-body{
-                        // text-align: center;
                         font-family: 'Open Sans', sans-serif;
                         font-size: 14px;
                         .mb-line{
@@ -195,13 +218,14 @@ export default {
                 }
             }
         }
+        .main-footer-dark{
+            color: $off_white;
+        }
         .main-footer{
             height: 1rem;
             background: none;
             z-index: 50;
             margin: 0rem;
-            // position: relative;
-            // padding-top: 1rem;
         }
     }
 </style>
