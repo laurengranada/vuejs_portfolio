@@ -65,7 +65,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/style/utilcolor.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans');
-@media only screen and (max-width: 375px) {
+@media (max-width: 375px) {
     .main{
         .main-innr{
             .m-card{
