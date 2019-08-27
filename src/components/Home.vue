@@ -123,7 +123,7 @@ export default {
     .main{
         height: 100%;
         width: 100%;
-        padding-top: 6rem;
+        padding-top: 10%;
         overflow-y: auto;
         .main-innr{
             padding-right: 5%;
